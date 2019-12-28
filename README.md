@@ -3,7 +3,9 @@ A C++ Linux command line program that extracts patient stay information from a C
 
 Consists of three files: 
 PatientCentric.cpp 
+
 Patient.cpp 
+
 Patient.h. 
 
 Written and tested on a Linux system, and as such I cannot guarantee that it will reliably work on other operating systems without modification. 
