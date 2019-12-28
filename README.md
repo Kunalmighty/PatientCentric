@@ -2,10 +2,8 @@
 A C++ Linux command line program that extracts patient stay information from a CSV file containing ADT (Admit-Discharge-Transfer) events.
 
 Consists of three files: 
-PatientCentric.cpp 
-
-Patient.cpp 
-
+PatientCentric.cpp,
+Patient.cpp and
 Patient.h. 
 
 Written and tested on a Linux system, and as such I cannot guarantee that it will reliably work on other operating systems without modification. 
@@ -38,5 +36,5 @@ Only patients with completed stays at a hospital have been included in the outpu
 For each patient, the program calculates: 1) The number of times they were admitted, 2) Average length of stay and 3) Severity (based on whether any of their admissions was an Emergency.)
 I make use of a map of Patient class objects, each Patient object has a sorted vector of structs - each struct includes a facility name, Inpatient/Emergency, complaint name, Admission/Discharge, timestamp etc. Look at the code to learn more! I've tried to provide useful comments and function specifications to make your life easier. 
 4) The Begin time and End time in the output has been standardized to GMT time, as I felt that this was simpler. 
-5) My driving philosophy in designing the program was that it should provide as much information for the benefit of the patient as possible, hence the extra features that provide much needed information about each patient. These pieces of info could then be used to caldculate which patients are the most at-risk, for example. This is also the reason why the program is called "PatientCentric."
-6) You may notice that the program runs very fast, and computes the output file for the original EVENT_DATA.csv file in less than a second after receivving the filenames of the input and output files.  
+5) My driving philosophy in designing the program was that it should provide as much information for the benefit of the patient as possible, hence the extra features that provide much needed information about each patient. These pieces of info could then be used to calculate which patients are the most at-risk, for example. This is also the reason why the program is called "PatientCentric."
+6) You may notice that the program runs very fast, and computes the output file for the original EVENT_DATA.csv file in less than a second after receiving the filenames of the input and output files.  
