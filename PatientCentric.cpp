@@ -42,11 +42,11 @@ int main()
 
             patientData.clear();
 
-            int pos1 = line.find("\"");
+            size_t pos1 = line.find("\"");
             if (pos1 != string::npos) {
 
                 string sub = line.substr(pos1+1);                
-                int pos2 = sub.find("\"");
+                size_t pos2 = sub.find("\"");
                 string sub2 = sub.substr(0, pos2+1);
                 sub2.insert(0, "\"");                
 
@@ -88,7 +88,7 @@ int main()
     map<string, Patient*> patients; 
 
     int y, M, d, h, m, s, tzh, tzm;
-    tm time = { 0 };
+    tm time = {0};
     time_t toinsert;
 
     //Populating map of Patients    

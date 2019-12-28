@@ -124,14 +124,14 @@ void Patient::printStays(ofstream& outFile) {
         int minutes2 = out2.tm_min;         
         int seconds2 = out2.tm_sec; 
 
-        int cx = snprintf(outstr, 100, "%.4d-%.2d-%.2d %.2d:%.2d:%.2d", year, month+1, day, hour, minutes, seconds);
-        int cx2 = snprintf(outstr2, 100, "%.4d-%.2d-%.2d %.2d:%.2d:%.2d", year2, month2+1, day2, hour2, minutes2, seconds2);
+        snprintf(outstr, 100, "%.4d-%.2d-%.2d %.2d:%.2d:%.2d", year, month+1, day, hour, minutes, seconds);
+        snprintf(outstr2, 100, "%.4d-%.2d-%.2d %.2d:%.2d:%.2d", year2, month2+1, day2, hour2, minutes2, seconds2);
 
   		//processing stays[i].length, which is a double of seconds, into days, hours and minutes
   		int toprint = int(stays[i].length);
-        int cx3 = snprintf(outstr3, 100, "%.3d Days %.2d Hours %.2d Minutes %.2d Seconds", toprint/60/60/24, (toprint/60/60)%24, (toprint/60)%60, toprint%60);		
+        snprintf(outstr3, 100, "%.3d Days %.2d Hours %.2d Minutes %.2d Seconds", toprint/60/60/24, (toprint/60/60)%24, (toprint/60)%60, toprint%60);		
 		int toprint2 = int(avgStays());
-        int cx4 = snprintf(outstr4, 100, "%.3d Days %.2d Hours %.2d Minutes %.2d Seconds", toprint2/60/60/24, (toprint2/60/60)%24, (toprint2/60)%60, toprint2%60);
+        snprintf(outstr4, 100, "%.3d Days %.2d Hours %.2d Minutes %.2d Seconds", toprint2/60/60/24, (toprint2/60/60)%24, (toprint2/60)%60, toprint2%60);
 
 		string severe;
 		if (severity()) {
