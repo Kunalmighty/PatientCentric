@@ -42,6 +42,7 @@ int main()
 
             patientData.clear();
 
+            //processing each line of the input file so that the quoted Complaint column is extracted
             size_t pos1 = line.find("\"");
             if (pos1 != string::npos) {
 

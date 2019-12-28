@@ -4,11 +4,22 @@ using namespace std;
 
 int Patient::patient_count;
 
+/**
+ * Patient constructor. Each patient object has a unique ID, corresponding to the ID on the ADT file. 
+ *
+ * @param this_id: A unique string. 
+ */
 Patient::Patient(string this_id) {
 	id = this_id;
 	patient_count++;
 }
 
+/**
+ * Calculate the average length of this Patient's stays at the hospital. 
+ *
+ * @param none
+ * @return decimal value of average
+ */
 double Patient::avgStays()
 {
 	double avgcalc;
@@ -18,6 +29,13 @@ double Patient::avgStays()
 	return avgcalc/stays.size();
 }
 
+/**
+ * Determines whether the Patient's ADT records indicate severe ailments, based on the presence of an Emergency visit
+ * on file. 
+ *
+ * @param none
+ * @return boolean value indicating presence of Emergency event. 
+ */
 bool Patient::severity()
 {
 	for (size_t i = 0; i < events.size(); i++) {
@@ -30,11 +48,24 @@ bool Patient::severity()
 	return false;
 }
 
+/**
+ * Returns the total number of stays a Patient has had. 
+ *
+ * @param none
+ * @return number of stays, which is the size of the stays vector for this Patient 
+ */
 size_t Patient::stayCount()
 {
 	return stays.size(); 	
 }
 
+/**
+ * Add an event to this Patient's events vector.
+ *
+ * @param four strings for facility name, Inpatient/Emergency, complaint, Admission/Discharge and a time_t event timestamp
+ *        
+ * @return No return value needed, though one could be implemented for error checks in the future. 
+ */
 void Patient::addEvent(string one, string two, string three, string four, time_t five)
 {
 	event topush;
@@ -49,7 +80,14 @@ void Patient::addEvent(string one, string two, string three, string four, time_t
 
 }
 
-
+/**
+ * Populate this Patient's stays vector by going through the events vector, and adding stay instances 
+ * based on results of conditional statements that test the relationship between subsequent event entries in the 
+ * events vector.  
+ *
+ * @param none
+ * @return No return value needed, though one could be implemented for error checks in the future.
+ */
 void Patient::calculateStays() {
 
 	try {
@@ -92,6 +130,12 @@ void Patient::calculateStays() {
 	}
 }
 
+/**
+ * Print all of this Patient's stays out to the output file. 
+ *
+ * @param the pointer to the output file stream
+ * @return No return value needed, though one could be implemented for error checks in the future.
+ */
 void Patient::printStays(ofstream& outFile) {	
 
 	char outstr[100];

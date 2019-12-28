@@ -11,6 +11,12 @@
 #include <sstream> 
 using namespace std; 
 
+/**
+ * Patient class to represent each patient with possibly multiple events in the ADT data.
+ *
+ * Each Patient is assigned vectors of events and stays, which are then used to calculate stays. 
+ * 
+ */
 class Patient {
 	static int patient_count;
 	
